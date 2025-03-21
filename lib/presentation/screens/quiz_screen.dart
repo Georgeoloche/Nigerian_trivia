@@ -1,18 +1,21 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import '../database/database_helper.dart';
-import '../models/question.dart';
+import '../../domain/entities/question.dart';
+import '../../data/repositories/question_repository_impl.dart';
+import '../../data/sources/question_local_data_source.dart';
 
 class QuizScreen extends StatefulWidget {
   final String selectedCategory;
-  const QuizScreen({super.key, required this.selectedCategory});
+  final String selectedDifficulty;
+  const QuizScreen({super.key, required this.selectedCategory, required this.selectedDifficulty});
 
   @override
   _QuizScreenState createState() => _QuizScreenState();
 }
 
 class _QuizScreenState extends State<QuizScreen> {
+  final QuestionRepositoryImpl repository = QuestionRepositoryImpl(localDataSource: QuestionLocalDataSource());
   List<Question> _questions = [];
   int _currentIndex = 0;
   String? _selectedAnswer;
@@ -28,8 +31,8 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Future<void> _loadQuestions() async {
-    DatabaseHelper dbHelper = DatabaseHelper.instance;
-    List<Question> loadedQuestions = await dbHelper.getQuestionsByCategory(widget.selectedCategory);
+    List<Question> loadedQuestions = await repository.getQuestions(
+        category: widget.selectedCategory, difficulty: widget.selectedDifficulty);
     if (mounted) {
       setState(() {
         _questions = loadedQuestions;
@@ -62,7 +65,7 @@ class _QuizScreenState extends State<QuizScreen> {
       _selectedAnswer = answer;
     });
     _timer?.cancel();
-    bool isCorrect = answer == _questions[_currentIndex].correctAnswer;
+    bool isCorrect = answer == _questions[_currentIndex].answer;
     if (isCorrect) {
       setState(() {
         _score++;
@@ -104,24 +107,18 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     if (_questions.isEmpty) {
-      return Scaffold(
-        appBar: AppBar(title: const Text("Quiz")),
-        body: const Center(child: CircularProgressIndicator()),
-      );
+      return Scaffold(appBar: AppBar(title: const Text("Quiz")), body: const Center(child: CircularProgressIndicator()));
     }
     if (_quizCompleted) {
       return Scaffold(
         appBar: AppBar(title: const Text("Quiz Completed!")),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("🎉 Quiz Completed!", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              Text("Your Score: $_score / ${_questions.length}", style: const TextStyle(fontSize: 18)),
-              const SizedBox(height: 20),
-              ElevatedButton(onPressed: _restartQuiz, child: const Text("Restart Quiz")),
-            ],
-          ),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text("🎉 Quiz Completed!", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            Text("Your Score: $_score / ${_questions.length}", style: const TextStyle(fontSize: 18)),
+            const SizedBox(height: 20),
+            ElevatedButton(onPressed: _restartQuiz, child: const Text("Restart Quiz")),
+          ]),
         ),
       );
     }
@@ -176,11 +173,10 @@ class _QuizScreenState extends State<QuizScreen> {
       onPressed: () => _selectAnswer(answer),
       style: ElevatedButton.styleFrom(
         backgroundColor: _selectedAnswer == answer
-            ? (_selectedAnswer == _questions[_currentIndex].correctAnswer ? Colors.green : Colors.red)
+            ? (_selectedAnswer == _questions[_currentIndex].answer ? Colors.green : Colors.red)
             : Colors.blue,
       ),
       child: Text(answer),
     ).animate().scale();
   }
-  
 }

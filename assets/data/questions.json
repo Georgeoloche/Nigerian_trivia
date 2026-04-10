@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What is the capital city of Nigeria?",
+    "options": ["Lagos", "Abuja", "Kano", "Ibadan"],
+    "correctAnswer": "Abuja"
+  },
+  {
+    "question": "In what year did Nigeria gain independence?",
+    "options": ["1957", "1963", "1960", "1965"],
+    "correctAnswer": "1960"
+  },
+  {
+    "question": "What is the longest river in Nigeria?",
+    "options": ["Benue River", "Niger River", "Cross River", "Kaduna River"],
+    "correctAnswer": "Niger River"
+  },
+  {
+    "question": "Which city is known as the Centre of Excellence?",
+    "options": ["Abuja", "Kano", "Port Harcourt", "Lagos"],
+    "correctAnswer": "Lagos"
+  },
+  {
+    "question": "What is the official language of Nigeria?",
+    "options": ["Yoruba", "Hausa", "Igbo", "English"],
+    "correctAnswer": "English"
+  },
+  {
+    "question": "What is Nigeria's national currency?",
+    "options": ["Dollar", "Naira", "Kobo", "Cedis"],
+    "correctAnswer": "Naira"
+  },
+  {
+    "question": "Which ocean borders Nigeria to the south?",
+    "options": ["Indian Ocean", "Pacific Ocean", "Atlantic Ocean", "Arctic Ocean"],
+    "correctAnswer": "Atlantic Ocean"
+  },
+  {
+    "question": "How many states does Nigeria have?",
+    "options": ["30", "32", "36", "42"],
+    "correctAnswer": "36"
+  },
+  {
+    "question": "What is the national animal of Nigeria?",
+    "options": ["Lion", "Eagle", "Elephant", "Buffalo"],
+    "correctAnswer": "Eagle"
+  },
+  {
+    "question": "Which Nigerian writer won the Nobel Prize in 1986?",
+    "options": ["Chinua Achebe", "Wole Soyinka", "Ben Okri", "Chimamanda Adichie"],
+    "correctAnswer": "Wole Soyinka"
+  },
+  {
+    "question": "What does the green color on the Nigerian flag represent?",
+    "options": ["The ocean", "Agriculture and forests", "Peace", "The sky"],
+    "correctAnswer": "Agriculture and forests"
+  },
+  {
+    "question": "Which is the largest ethnic group in Northern Nigeria?",
+    "options": ["Igbo", "Yoruba", "Hausa-Fulani", "Tiv"],
+    "correctAnswer": "Hausa-Fulani"
+  },
+  {
+    "question": "What is the highest mountain in Nigeria?",
+    "options": ["Chappal Waddi", "Aso Rock", "Obudu Hills", "Mandara Mountains"],
+    "correctAnswer": "Chappal Waddi"
+  },
+  {
+    "question": "Which state in Nigeria produces the most oil?",
+    "options": ["Lagos State", "Imo State", "Rivers State", "Ogun State"],
+    "correctAnswer": "Rivers State"
+  },
+  {
+    "question": "What is the name of Nigeria's famous lake?",
+    "options": ["Lake Kainji", "Lake Chad", "Lake Victoria", "Lake Volta"],
+    "correctAnswer": "Lake Chad"
+  },
+  {
+    "question": "Which planet is closest to the Sun?",
+    "options": ["Venus", "Earth", "Mars", "Mercury"],
+    "correctAnswer": "Mercury"
+  },
+  {
+    "question": "What is the boiling point of water?",
+    "options": ["50°C", "75°C", "100°C", "120°C"],
+    "correctAnswer": "100°C"
+  },
+  {
+    "question": "How many continents are there in the world?",
+    "options": ["5", "6", "7", "8"],
+    "correctAnswer": "7"
+  },
+  {
+    "question": "What is the largest continent in the world?",
+    "options": ["Africa", "Asia", "Europe", "America"],
+    "correctAnswer": "Asia"
+  },
+  {
+    "question": "Which gas do plants need to make food?",
+    "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    "correctAnswer": "Carbon Dioxide"
+  }
+]
